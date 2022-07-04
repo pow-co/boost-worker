@@ -10,6 +10,8 @@ import { start as actors } from '../rabbi/actors'
 
 import { start as main } from '../main'
 
+import * as circleci from '../rabbi/circleci'
+
 program
   .version(version)
   .option('--config <path>')
@@ -56,6 +58,23 @@ program
   .action(() => {
 
     actors()
+
+  })
+
+program
+  .command('circleci getproject')
+  .action(async () => {
+
+    try {
+
+      let project = await circleci.getProject()
+
+      console.log(project)
+
+    } catch(error) {
+
+      console.error(error)
+    }
 
   })
 

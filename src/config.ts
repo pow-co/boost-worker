@@ -17,7 +17,7 @@ nconf.env({
 
 const global_file = `/etc/rabbi/config.json`
 
-const user_file = `${os.homedir()}/.rabbi/config.json`
+const user_file = `${os.homedir()}/.rabbi/rabbi.json`
 
 const project_file = `${process.cwd()}/.rabbi/config.json`
 
@@ -60,6 +60,7 @@ nconf.defaults({
   http_api_enabled: true,
   swagger_enabled: true,
   postgres_enabled: false,
+  stratum_enabled: true,
   database_url: 'postgres://postgres:password@postgres:5432/rabbi',
   amqp_url: 'amqp://guest:guest@rabbitmq:5672/rabbi',
   amqp_exchange: 'rabbi'

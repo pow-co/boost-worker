@@ -5,7 +5,15 @@ import { start as server } from './server'
 
 import { start as actors } from './rabbi/actors'
 
+import { start as stratum } from './stratum'
+
 export async function start() {
+
+  if (config.get('stratum_enabled')) {
+
+    stratum();
+
+  }
 
   if (config.get('http_api_enabled')) {
 

@@ -79,7 +79,21 @@ export async function start(): Promise<Actor[]> {
       connection: rabbi.connection,
       channel: rabbi.channel
     })
-    .start(actor.start)
+    .start(async (channel, msg, json) => {
+
+      try {
+
+        await actor.start(msg, json)
+
+        channel.ack(msg)
+
+      } catch(error) {
+
+        channel.nack(msg)
+
+      }
+
+    })
 
   }
 
