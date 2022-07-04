@@ -146,4 +146,21 @@ program
 
   })
 
+program
+  .command('circleci_set_env_from_config')
+  .action(async () => {
+
+    try {
+
+      let result = await circleci.setEnvFromConfig()
+
+      console.log(result)
+
+    } catch(error) {
+
+      console.error(error)
+    }
+
+  })
+
 program.parse(process.argv)

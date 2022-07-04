@@ -76,3 +76,16 @@ export async function setEnv({ name, value }: { name: String, value: String }): 
 
 
 }
+
+export async function setEnvFromConfig(): Promise<any> {
+
+  await setEnv({ name: 'DOCKER_USER', value: config.get('docker_user') })
+
+  await setEnv({ name: 'DOCKER_PASSWORD', value: config.get('docker_password') })
+
+  await setEnv({ name: 'DOCKER_REPO', value: config.get('docker_repo') })
+
+  await setEnv({ name: 'GITHUB_TOKEN', value: config.get('github_token') })
+
+}
+

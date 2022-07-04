@@ -32,7 +32,7 @@ export const server = new Server({
 
 if (config.get('prometheus_enabled')) {
 
-  log.info('server.metrics.prometheus', { path: '/metrics' })
+  log.debug('server.metrics.prometheus', { path: '/metrics' })
 
   const { register: prometheus } = require('./metrics')
 
