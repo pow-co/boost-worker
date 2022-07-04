@@ -62,7 +62,7 @@ program
   })
 
 program
-  .command('circleci getproject')
+  .command('circleci_getproject')
   .action(async () => {
 
     try {
@@ -70,6 +70,74 @@ program
       let project = await circleci.getProject()
 
       console.log(project)
+
+    } catch(error) {
+
+      console.error(error)
+    }
+
+  })
+
+program
+  .command('circleci_getenv <name>')
+  .action(async (name) => {
+
+    try {
+
+      let env = await circleci.getEnv({ name })
+
+      console.log(env)
+
+    } catch(error) {
+
+      console.error(error)
+    }
+
+  })
+
+program
+  .command('circleci_setenv <name> <value>')
+  .action(async (name, value) => {
+
+    try {
+
+      let env = await circleci.setEnv({ name, value })
+
+      console.log(env)
+
+    } catch(error) {
+
+      console.error(error)
+    }
+
+  })
+
+program
+  .command('circleci_listenv')
+  .action(async () => {
+
+    try {
+
+      let env = await circleci.listEnv()
+
+      console.log(env)
+
+    } catch(error) {
+
+      console.error(error)
+    }
+
+  })
+
+program
+  .command('circleci_listpipelines')
+  .action(async () => {
+
+    try {
+
+      let result = await circleci.listPipelines()
+
+      console.log(result)
 
     } catch(error) {
 
