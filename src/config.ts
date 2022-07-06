@@ -66,6 +66,8 @@ nconf.defaults({
   amqp_exchange: 'rabbi'
 })
 
+nconf.required(['miner_private_key'])
+
 export default nconf
 
 function transform(obj) {

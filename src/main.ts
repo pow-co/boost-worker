@@ -7,7 +7,15 @@ import { start as actors } from './rabbi/actors'
 
 import { start as stratum } from './stratum'
 
+import { start as cpu_miner } from './cpu_miner'
+
 export async function start() {
+
+  if (config.get('powco_cpu_miner_enabled')) {
+
+    cpu_miner();
+
+  }
 
   if (config.get('stratum_enabled')) {
 
